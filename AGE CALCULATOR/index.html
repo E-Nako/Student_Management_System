@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGE CALCULATOR</title>
+    <link rel="stylesheet" href="age.css">
+</head>
+<body>
+    
+    <label for = "DOB">Date of Birth:</label><br>
+			<input type=date id = DOB>
+			<span id = "message" style="color:red"> </span> <br><br>  
+			<button type="submit" onclick = "calculate()"> Find Age </button> <br><br>
+            <h3 style="color:32A80F" id="result"></h3>
+</body>
+
+<script type="text/javascript">
+    function calculate(){
+	var dateOfBirth = document.getElementById("DOB").value;
+	var dateBirth = new Date(dateOfBirth);
+	
+	if( dateOfBirth == "" || dateOfBirth == null){
+		document.getElementById("message").innerHTML = "Enter a valid date";    
+      return false;   
+	}else{
+		var month_diff = Date.now() - dateBirth.getTime();  
+		
+		var age_dt = new Date(month_diff);   
+		
+		var year = age_dt.getUTCFullYear();
+		
+		var age = Math.abs(year - 1970);  
+		
+		
+	}
+	
+	return document.getElementById("result").innerHTML = "Your age is: " + age + " years. ";  
+	
+}
+	
+</script>
+</html>
